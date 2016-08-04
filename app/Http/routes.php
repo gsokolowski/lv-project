@@ -26,7 +26,7 @@
 // CRUD interactions
 //// create
 //Route::get('/cards/create', 'CardsController@create'); // to display form to create card
-//Route::post('/cards', 'CardsController@store'); // to save new card (submit to)
+//Route::post('/cards', 'CardsController@add'); // to save new card (submit to)
 //
 //// read
 //Route::get('/cards', 'CardsController@index'); // to show all cards
@@ -39,12 +39,20 @@
 //// delete
 //Route::delete('/cards/1', 'CardsController@destroy'); // to delete specific card
 
-Route::get('/', 'PagesController@home');
-Route::get('/home', 'PagesController@home');
-Route::get('/about', 'PagesController@about');
+Route::get('', 'PagesController@home');
+Route::get('home', 'PagesController@home');
+Route::get('about', 'PagesController@about');
+
+// cards
+Route::get('cards', 'CardsController@index'); // to show all cards
+Route::post('cards', 'CardsController@store'); // to store (save) specific card of specific id
+Route::get('cards/{card}', 'CardsController@show'); // to show a card of specific id with notes
 
 
-Route::get('/cards', 'CardsController@index'); // to show all cards
+// notes
+Route::post('cards/{card}/notes', 'NotesController@store'); // to store (save) note for the card
+Route::get('notes/{note}/edit', 'NotesController@edit'); // to show form to edit note of id
+Route::patch('notes/{note}', 'NotesController@update'); //
 
 
 
