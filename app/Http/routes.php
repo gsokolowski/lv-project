@@ -52,7 +52,7 @@ Route::get('cards/{card}', 'CardsController@show'); // to show a card of specifi
 // notes
 Route::post('cards/{card}/notes', 'NotesController@store'); // to store (save) note for the card
 Route::get('notes/{note}/edit', 'NotesController@edit'); // to show form to edit note of id
-Route::patch('notes/{note}', 'NotesController@update'); //
+Route::patch('notes/{note}', 'NotesController@update'); // to update data do DB
 
 
 

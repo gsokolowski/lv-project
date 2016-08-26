@@ -19,15 +19,22 @@
             <hr/>
             <h3>Add a New Note</h3>
             <form method="POST" action="/cards/{{ $card->id }}/notes">
-                {!! csrf_field() !!}
+                {{ csrf_field() }}
                 <input type="hidden" name="user_id" value="1">
                 <div class="form-group">
-                    <textarea name="body" class="form-control"></textarea>
+                    <textarea name="body" class="form-control">{{ old('body') }}</textarea>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Add Note</button>
                 </div>
             </form>
+            @if (count($errors))
+                <ul>
+                    @foreach( $errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
         </div>
     </div>
 @endsection
